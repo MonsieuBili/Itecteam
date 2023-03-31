@@ -1,6 +1,6 @@
-
-var button=document.getElementById("btn")
-button.addEventListener("click",function()
-{
-    console.log("rafa")
-})
+function displayText(text) {
+    const myDiv = document.getElementById("btn");
+    myDiv.innerText = text;
+  }
+  
+  displayText("Hello, world!");
