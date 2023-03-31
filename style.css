@@ -1,10 +1,15 @@
-.btn{
-    align-content:center;
-}
-
-.rounded-button {
-
-     position: relative;
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: #4527A0;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /*--Button Styles--*/
+  .btn {
+    position: relative;
     color: #D1C4E9;
     text-decoration: none;
     text-transform: uppercase;
@@ -20,3 +25,29 @@
     text-align: center;
   }
   
+  .btn:before {
+    content: '';
+    position: absolute;
+    background: #9575CD;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    border-radius: 175px;
+    box-shadow: 0px 0px 24px 1px rgba(224,199,224,0.2);
+    transition: all 300ms cubic-bezier(1.000, -0.195, 0.000, 1.330);
+    transition-timing-function: cubic-bezier(1.000, -0.195, 0.000, 1.330);
+  }
+  
+  .btn:hover:before {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .btn:active:before{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 24px 1px rgba(199, 203, 224, 0.2);
+    transition: all 600ms cubic-bezier(1.000, -0.195, 0.000, 1.330);
+    transition-timing-function: cubic-bezier(1.000, -0.195, 0.000, 1.330);
+    
+  }
