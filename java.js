@@ -1,4 +1,4 @@
-var button=document.getElementById("btn")
+var button=document.getElementByClass("btn")
 button.addEventListener("click",function()
 {
     console.log("rafa")
