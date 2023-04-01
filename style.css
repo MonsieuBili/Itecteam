@@ -171,4 +171,5 @@ body.dark-mode {
   margin: 20px;
   color: white;
   background-color: grey;
+  display: none;
 }
