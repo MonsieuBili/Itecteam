@@ -8,7 +8,7 @@ body {
   }
   
   /*--Button Styles--*/
-  .btn {
+  /*.btn {
     position: relative;
     color: #D1C4E9;
     text-decoration: none;
@@ -41,5 +41,21 @@ body {
   .btn:hover:before {
     width: 100%;
     height: 100%;
-  }
+  }*/
   
+  .poem_gen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+
+  .lead{
+    position: center;
+    padding: 0px 0px 0px 50px;
+    position: relative;
+  }
+
+  .input-group mb-3{
+    position: absolute;
+  }

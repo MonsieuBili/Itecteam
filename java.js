@@ -10,18 +10,13 @@
     });
   });
 
-  window.onload = async function start() {
-    /* var res = JSON.parse(httpGet("http://ai.khichuri.net/poemwrite.php?word=cats")) 
-    console.log(res)
-    document.getElementById("test").innerHTML = res.fact */
-
-    var a = await qqq("IDK ")
+  async function createPoem() {
+    var l = document.getElementById("lyric").value
+    console.log(l)
+    var a = await qqq(l)
     console.log(a[0].generated_text)
     var b = a[0].generated_text
-    
-   
-    console.log(b)
-    document.getElementById("test").textContent = b
+    document.getElementById("test").textContent= b
 }
 
 async function qqq(data) {
