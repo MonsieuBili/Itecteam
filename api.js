@@ -63,7 +63,7 @@ var poema = ""
 document.getElementById("button-addon2").addEventListener('click', () => {
     
       var l = document.getElementById("lyric").value
-      question = "Hello! Can you make a poem starting with " + l;
+      question = "Hello! Can you make a poem that starts with " + l;
       postData("https://api.openai.com/v1/chat/completions", {
           "model": "gpt-3.5-turbo",
           "messages": [{"role": "user", "content": question}]
