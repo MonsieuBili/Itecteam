@@ -39,22 +39,21 @@ function httpGet(theUrl)
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
-const toggleThemeButton = document.getElementById('toggle-theme-button');
+/*bhutonas*/
+const darkModeToggle = document.querySelector("#dark-mode-toggle");
+const body = document.querySelector("body");
 
-toggleThemeButton.addEventListener('click', function() {
-  // Get the body element
-  const bodyEl = document.querySelector('body');
-  
-  // Toggle the class to switch to/from the dark theme
-  bodyEl.classList.toggle('dark');
-  
-  // Store the user preference in local storage
-  const isDark = bodyEl.classList.contains('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+darkModeToggle.addEventListener("change", function() {
+  body.classList.toggle("dark-mode");
 });
-
-// Check local storage for user preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-  document.querySelector('body').classList.add('dark');
-}
+/*HIDE HTML COMPONENTS*/
+function hideElement() {
+			// Get the element to be hidden
+			var element = document.getElementsByTagName("p")[0];
+     
+			// Add the "hidden" class to the element
+			element.classList.add("hidden");
+      document.getElementById("lyric").hidden = true;
+      document.getElementById("button-addon2").hidden = true;
+     
+		}
