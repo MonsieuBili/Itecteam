@@ -62,7 +62,6 @@ function idk_click() {
 document.getElementById("button-addon2").addEventListener('click', () => {
     
       var l = document.getElementById("lyric").value
-      var question = "Hello! Can you write a poem starting with "+ l;
       console.log(question)
       postData("https://api.openai.com/v1/chat/completions", {
           "model": "gpt-3.5-turbo",
@@ -74,4 +73,3 @@ document.getElementById("button-addon2").addEventListener('click', () => {
         document.getElementById("lyric").value = "";    
       });
   });
-
