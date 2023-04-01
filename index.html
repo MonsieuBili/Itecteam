@@ -11,32 +11,32 @@
     <title>Poem Generator</title>
 </head>
 <body> 
+  <div id="particles-js" width="100%" height="100%">
+<canvas class="particles-js-canvas-el" width="1583" height="900" style="width: 100%; height: 100%;"></canvas></div>
     <div class="toggle-switch">
         <input type="checkbox" id="dark-mode-toggle">
         <label for="dark-mode-toggle"></label>
       </div>
-      
-  <div class="poem_gen">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Poem Generator</h1>
-        <p class="lead">Enter the first line of your poem</p>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-          </div>
-          <input id="lyric" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="createPoem();hideElement()">Generate</button>
+    <div class="poem_gen">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Poem Generator</h1>
+          <p class="lead">Enter the first line of your poem</p>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input id="lyric" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="createPoem();hideElement()">Generate</button>
+        </div>
       </div>
-    </div>
+        </div>
+          <p id="test"></p>
       </div>
-        <p id="test"></p>
-    </div>
-  </div>
-    
-    </div>
-    <div id="displayText" style="display: none;">
-       
+    <div id="displayText" style="display: none;"> </div>
 </body>
+</div>
 <script src="java.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="particles.js"></script>
+<script type="text/javascript" src="app.js"></script>
 </html>
