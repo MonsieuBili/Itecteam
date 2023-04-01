@@ -1,23 +1,3 @@
-  const buttons = document.querySelectorAll('.btn');
-  
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      buttons.forEach(otherButton => {
-        if (otherButton !== button) {
-          otherButton.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  async function createPoem() {
-    var l = document.getElementById("lyric").value
-    console.log(l)
-    var a = await qqq(l)
-    console.log(a[0].generated_text)
-    var b = a[0].generated_text
-    document.getElementById("test").textContent= b
-}
 
 async function qqq(data) {
 	const response = await fetch(
@@ -46,7 +26,7 @@ const body = document.querySelector("body");
 darkModeToggle.addEventListener("change", function() {
   body.classList.toggle("dark-mode");
 });
-/*HIDE HTML COMPONENTS*/
+/*HIDE HTML COMPONENTS
 function hideElement() {
 			// Get the element to be hidden
 			var element = document.getElementsByTagName("p")[0];
@@ -56,4 +36,4 @@ function hideElement() {
       document.getElementById("lyric").hidden = true;
       document.getElementById("button-addon2").hidden = true;
      
-		}
+		}*/

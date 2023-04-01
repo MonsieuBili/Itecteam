@@ -14,6 +14,7 @@ body {
     height: 100%;
     width: 100%;
     position: absolute;
+    z-index: -100;
   }
   canvas {
     display:block;
@@ -60,6 +61,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 90vh;
+    margin: 50px;
+    box-sizing: border-box;
+    display: none;
   }
 
   .lead{
@@ -137,3 +141,22 @@ body.dark-mode {
   display: none;
 }
 
+#poem{
+  text-align: justify;
+}
+
+.token_req{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+}
+
+.token-inp{
+  max-width: 500px;
+}
+
+.input-group {
+  background: black;
+}

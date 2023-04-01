@@ -1,28 +1,57 @@
+var ttt;
+
 async function postData(url = "", data = {}) {
-    // Default options are marked with *
+
     const response = await fetch(url, {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
+      method: "POST",
+      mode: "cors", 
+      cache: "no-cache", 
+      credentials: "same-origin", 
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer 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"
-        // 'Content-Type': 'application/x-www-form-urlencoded',
+        "Authorization": "Bearer " + ttt
+      
       },
-      redirect: "follow", // manual, *follow, error
-      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body: JSON.stringify(data), // body data type must match "Content-Type" header
+      redirect: "follow", 
+      referrerPolicy: "no-referrer", 
+      body: JSON.stringify(data), 
     });
-    return response.json(); // parses JSON response into native JavaScript objects
+    return response.json(); 
   }
-  
-  postData("https://api.openai.com/v1/chat/completions", {
-      "model": "gpt-3.5-turbo",
-      "messages": [{"role": "user", "content": "Hello! Can you write me a poem about cats in spanish!"}]
-    }).then((data) => {
-        console.log(data)
-    var poem = data.choices[0].message.content
-    console.log(poem)
 
+function idk_click() {
+    ttt = document.getElementById("tokeninp").value
+    document.getElementById("token_req").style.display = "none";
+    document.getElementById("poem_gen").style.display = "flex";
+}
+
+document.getElementById("button-addon2").addEventListener('click', () => {
+    
+      var l = document.getElementById("lyric").value
+      var question = "Hello! Can you write a poem of 30 verses each of 2 lyrics starting with "+ l;
+      console.log(question)
+      postData("https://api.openai.com/v1/chat/completions", {
+          "model": "gpt-3.5-turbo",
+          "messages": [{"role": "user", "content": question}]
+        }).then((data) => {
+        
+        var singlePoem = data.choices[0].message.content
+        console.log(doublePoem)
+        var doublePoem = doubleSlashes(singlePoem)
+        console.log(doublePoem)
+        document.getElementById("poem").textContent = doublePoem;
+        document.getElementById("lyric").value = "";    
+      });
   });
+
+  function doubleSlashes(str) {
+    let doubledStr = "";
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === "/") {
+        doubledStr += "//";
+      } else {
+        doubledStr += str[i];
+      }
+    }
+    return doubledStr;
+  }
