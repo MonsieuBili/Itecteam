@@ -1,24 +1,3 @@
-
-async function qqq(data) {
-	const response = await fetch(
-		"https://api-inference.huggingface.co/models/ismaelfaro/gpt2-poems.en",
-		{
-			headers: { Authorization: "Bearer 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" },
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
 /*bhutonas*/
 const darkModeToggle = document.querySelector("#dark-mode-toggle");
 const body = document.querySelector("body");

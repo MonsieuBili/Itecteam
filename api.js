@@ -50,6 +50,7 @@ async function postData(url = "", data = {}) {
       referrerPolicy: "no-referrer", 
       body: JSON.stringify(data), 
     });
+    document.getElementById("vocee").style.display = "block";
     return response.json(); 
   }
 
@@ -58,7 +59,7 @@ function idk_click() {
     document.getElementById("token_req").style.display = "none";
     document.getElementById("poem_gen").style.display = "flex";
 }
-
+var poema = ""
 document.getElementById("button-addon2").addEventListener('click', () => {
     
       var l = document.getElementById("lyric").value
@@ -70,6 +71,12 @@ document.getElementById("button-addon2").addEventListener('click', () => {
         
         var singlePoem = data.choices[0].message.content
         document.getElementById("poem").innerHTML = singlePoem.replaceAll("\n", "<br>");
-        document.getElementById("lyric").value = "";    
-      });
+        document.getElementById("lyric").value = ""; 
+        poema = singlePoem;
+      })
   });
+
+  function voce(str)
+  {
+    responsiveVoice.speak(poema);
+  }
