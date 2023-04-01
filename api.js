@@ -28,7 +28,7 @@ function idk_click() {
 document.getElementById("button-addon2").addEventListener('click', () => {
     
       var l = document.getElementById("lyric").value
-      var question = "Hello! Can you write a poem of 30 verses each of 2 lyrics starting with "+ l;
+      var question = "Hello! Can you write a poem of 5 verses each of 2 lyrics starting with "+ l;
       console.log(question)
       postData("https://api.openai.com/v1/chat/completions", {
           "model": "gpt-3.5-turbo",
@@ -43,7 +43,7 @@ document.getElementById("button-addon2").addEventListener('click', () => {
         document.getElementById("lyric").value = "";    
       });
   });
-
+    var poema = ""
   function doubleSlashes(str) {
     let doubledStr = "";
     for (let i = 0; i < str.length; i++) {
@@ -53,5 +53,12 @@ document.getElementById("button-addon2").addEventListener('click', () => {
         doubledStr += str[i];
       }
     }
+    poema = doubledStr;
+    document.getElementById("vocee").style.display = "block";
     return doubledStr;
+  }
+
+  function voce(str)
+  {
+    responsiveVoice.speak(poema);
   }
