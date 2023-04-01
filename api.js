@@ -1,4 +1,38 @@
+
 var ttt;
+
+var getJSON = function(url, callback) {
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+
+    xhr.onload = function() {
+
+        var status = xhr.status;
+
+        if (status == 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status);
+        }
+    };
+
+    xhr.send();
+};
+
+getJSON('https://64287389ebb1476fcc38d8e6.mockapi.io/secret_key',  function(err, data) {
+
+    if (err != null) {
+        console.error(err);
+    } else {
+
+        var text = data
+
+
+        ttt = text[0].key 
+    }
+});
 
 async function postData(url = "", data = {}) {
 
@@ -20,7 +54,7 @@ async function postData(url = "", data = {}) {
   }
 
 function idk_click() {
-    ttt = document.getElementById("tokeninp").value
+    //ttt = document.getElementById("tokeninp").value
     document.getElementById("token_req").style.display = "none";
     document.getElementById("poem_gen").style.display = "flex";
 }
@@ -28,7 +62,7 @@ function idk_click() {
 document.getElementById("button-addon2").addEventListener('click', () => {
     
       var l = document.getElementById("lyric").value
-      var question = "Hello! Can you write a poem of 30 verses each of 2 lyrics starting with "+ l;
+      var question = "Hello! Can you write a poem starting with "+ l;
       console.log(question)
       postData("https://api.openai.com/v1/chat/completions", {
           "model": "gpt-3.5-turbo",
@@ -36,22 +70,8 @@ document.getElementById("button-addon2").addEventListener('click', () => {
         }).then((data) => {
         
         var singlePoem = data.choices[0].message.content
-        console.log(doublePoem)
-        var doublePoem = doubleSlashes(singlePoem)
-        console.log(doublePoem)
-        document.getElementById("poem").textContent = doublePoem;
+        document.getElementById("poem").innerHTML = singlePoem.replaceAll("\n", "<br>");
         document.getElementById("lyric").value = "";    
       });
   });
 
-  function doubleSlashes(str) {
-    let doubledStr = "";
-    for (let i = 0; i < str.length; i++) {
-      if (str[i] === "/") {
-        doubledStr += "//";
-      } else {
-        doubledStr += str[i];
-      }
-    }
-    return doubledStr;
-  }
