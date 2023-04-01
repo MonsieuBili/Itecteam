@@ -39,3 +39,22 @@ function httpGet(theUrl)
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
+const toggleThemeButton = document.getElementById('toggle-theme-button');
+
+toggleThemeButton.addEventListener('click', function() {
+  // Get the body element
+  const bodyEl = document.querySelector('body');
+  
+  // Toggle the class to switch to/from the dark theme
+  bodyEl.classList.toggle('dark');
+  
+  // Store the user preference in local storage
+  const isDark = bodyEl.classList.contains('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Check local storage for user preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.querySelector('body').classList.add('dark');
+}
