@@ -57,3 +57,18 @@ function hideElement() {
       document.getElementById("button-addon2").hidden = true;
      
 		}
+/*schimbam background*/
+const changeBgBtn = document.getElementById('button-addon2');
+const background = document.getElementById('particles-js');
+const images = ['second-image.jpg', 'third-image.jpg', 'fourth-image.jpg'];
+let currentImage = 0;
+
+changeBgBtn.addEventListener('click', () => {
+  currentImage = (currentImage + 1) % images.length;
+  const newImage = images[currentImage];
+  background.style.backgroundImage = "url('raf.jpg')";
+  
+})
+
+
+
